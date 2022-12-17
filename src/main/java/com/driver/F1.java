@@ -11,15 +11,11 @@ public class F1 extends Car {
     }
 
     public void accelerate(int rate){
+       // System.out.println("Accelerate called");
         int newSpeed = 0; //set the value of new speed by using currentSpeed and rate
-        newSpeed=getCurrentSpeed()+rate;
-        if(newSpeed==0) setCurrentGear(1);
-        if(newSpeed>=1&&newSpeed<=50) setCurrentGear(1);
-        if(newSpeed>=51&&newSpeed<=100) setCurrentGear(2);
-        if(newSpeed>=101&&newSpeed<=150) setCurrentGear(3);
-        if(newSpeed>=151&&newSpeed<=200) setCurrentGear(4);
-        if(newSpeed>=201&&newSpeed<=250) setCurrentGear(5);
-        if(newSpeed>250) setCurrentGear(6);
+        newSpeed=this.getCurrentSpeed()+rate;
+        this.setCurrentSpeed(newSpeed);
+
         /**
          * speed 0: gear 1
          * speed 1-50: gear 1
@@ -30,8 +26,11 @@ public class F1 extends Car {
          * speed more than 250: gear 6
          */
 
-        if(newSpeed == 0) {
+       if(newSpeed == 0) {
             //Stop the car, set gear as 1
+           this.setCurrentGear(1);
+           this.stop();
+
         }
         //for all other cases, change the gear accordingly
 

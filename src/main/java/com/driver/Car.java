@@ -88,7 +88,13 @@ public class Car extends Vehicle {
     }
 
     public void changeSpeed(int newSpeed, int newDirection){
-       move(newSpeed,newDirection);
+        if(newSpeed==0) setCurrentGear(1);
+        if(newSpeed>=1&&newSpeed<=50) this.setCurrentGear(1);
+        if(newSpeed>=51&&newSpeed<=100) this.setCurrentGear(2);
+        if(newSpeed>=101&&newSpeed<=150) this.setCurrentGear(3);
+        if(newSpeed>=151&&newSpeed<=200) this.setCurrentGear(4);
+        if(newSpeed>=201&&newSpeed<=250) this.setCurrentGear(5);
+        if(newSpeed>250) this.setCurrentGear(6);
         System.out.println("changeSpeed method called - The speed is changed to: " + newSpeed + ", and the direction is changed to: " + newDirection + " degrees");
     }
 }
