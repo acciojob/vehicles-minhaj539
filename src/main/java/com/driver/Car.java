@@ -10,14 +10,8 @@ public class Car extends Vehicle {
     private int seats;
 
     public Car() {
-        this.wheels=wheels;
-        this.doors=doors;
-        this.gears=gears;
-        this.isManual=isManual;
-        this.type=type;
-        this.seats=seats;
-        this.currentGear=1;
     }
+
 
     public int getWheels() {
         return wheels;
