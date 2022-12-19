@@ -2,19 +2,24 @@ package com.driver;
 
 public class F1 extends Car {
 
-    public F1(String name, boolean isManual) {
-     //   super();
-        setName(name);
-       setManual(isManual);
+   public F1(String name,boolean isManual){
+       super("f1",4,2,7, isManual,"sport",  2);
 
 
-    }
+
+   }
 
     public void accelerate(int rate){
        // System.out.println("Accelerate called");
-        int newSpeed = 0; //set the value of new speed by using currentSpeed and rate
-        newSpeed=this.getCurrentSpeed()+rate;
-        this.setCurrentSpeed(newSpeed);
+              int newSpeed=rate+getCurrentSpeed();
+
+        if(newSpeed==0) changeGear(1);
+        else if(newSpeed>=1&&newSpeed<=50) changeGear(1);
+        else if(newSpeed>=51&&newSpeed<=100) changeGear(2);
+        else if(newSpeed>=101&&newSpeed<=150) changeGear(3);
+        else if(newSpeed>=151&&newSpeed<=200) changeGear(4);
+        else if(newSpeed>=201&&newSpeed<=250) changeGear(5);
+        else if(newSpeed>250) changeGear(6);
 
         /**
          * speed 0: gear 1
@@ -28,7 +33,7 @@ public class F1 extends Car {
 
        if(newSpeed == 0) {
             //Stop the car, set gear as 1
-           this.setCurrentGear(1);
+
            this.stop();
 
         }
